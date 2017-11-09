@@ -1,0 +1,40 @@
+2017-11-09 14:09:51,818 kazoo.client INFO     Connecting to 192.168.137.111:2181
+2017-11-09 14:09:51,820 kazoo.client DEBUG    Sending request(xid=None): Connect(protocol_version=0, last_zxid_seen=0, time_out=3000, session_id=0, passwd=b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00', read_only=None)
+2017-11-09 14:09:51,825 kazoo.client INFO     Zookeeper connection established, state: CONNECTED
+2017-11-09 14:09:51,825 kazoo.client DEBUG    Sending request(xid=1): Exists(path='/jrpc', watcher=None)
+2017-11-09 14:09:51,826 kazoo.client DEBUG    Received response(xid=1): ZnodeStat(czxid=1671, mzxid=1671, ctime=1510130838239, mtime=1510130838239, version=0, cversion=3, aversion=0, ephemeralOwner=0, dataLength=0, numChildren=1, pzxid=3037)
+2017-11-09 14:09:51,827 kazoo.client DEBUG    Sending request(xid=2): Exists(path='/jrpc/python_test$EchoService/clients', watcher=None)
+2017-11-09 14:09:51,828 kazoo.client DEBUG    Sending request(xid=3): Create(path='/jrpc/python_test$EchoService/clients', data=b'', acl=[ACL(perms=31, acl_list=['ALL'], id=Id(scheme='world', id='anyone'))], flags=0)
+2017-11-09 14:09:51,831 kazoo.client DEBUG    Received error(xid=3) NoNodeError()
+2017-11-09 14:09:51,831 kazoo.client DEBUG    Sending request(xid=4): Exists(path='/jrpc/python_test$EchoService', watcher=None)
+2017-11-09 14:09:51,832 kazoo.client DEBUG    Sending request(xid=5): Exists(path='/jrpc', watcher=None)
+2017-11-09 14:09:51,832 kazoo.client DEBUG    Received response(xid=5): ZnodeStat(czxid=1671, mzxid=1671, ctime=1510130838239, mtime=1510130838239, version=0, cversion=3, aversion=0, ephemeralOwner=0, dataLength=0, numChildren=1, pzxid=3037)
+2017-11-09 14:09:51,832 kazoo.client DEBUG    Sending request(xid=6): Create(path='/jrpc/python_test$EchoService', data=b'', acl=[ACL(perms=31, acl_list=['ALL'], id=Id(scheme='world', id='anyone'))], flags=0)
+2017-11-09 14:09:51,834 kazoo.client DEBUG    Received response(xid=6): '/jrpc/python_test$EchoService'
+2017-11-09 14:09:51,834 kazoo.client DEBUG    Sending request(xid=7): Create(path='/jrpc/python_test$EchoService/clients', data=b'', acl=[ACL(perms=31, acl_list=['ALL'], id=Id(scheme='world', id='anyone'))], flags=0)
+2017-11-09 14:09:51,835 kazoo.client DEBUG    Received response(xid=7): '/jrpc/python_test$EchoService/clients'
+2017-11-09 14:09:51,835 kazoo.client DEBUG    Sending request(xid=8): Exists(path='/jrpc/python_test$EchoService/statistics/clients', watcher=None)
+2017-11-09 14:09:51,836 kazoo.client DEBUG    Sending request(xid=9): Create(path='/jrpc/python_test$EchoService/statistics/clients', data=b'', acl=[ACL(perms=31, acl_list=['ALL'], id=Id(scheme='world', id='anyone'))], flags=0)
+2017-11-09 14:09:51,837 kazoo.client DEBUG    Received error(xid=9) NoNodeError()
+2017-11-09 14:09:51,838 kazoo.client DEBUG    Sending request(xid=10): Exists(path='/jrpc/python_test$EchoService/statistics', watcher=None)
+2017-11-09 14:09:51,838 kazoo.client DEBUG    Sending request(xid=11): Exists(path='/jrpc/python_test$EchoService', watcher=None)
+2017-11-09 14:09:51,839 kazoo.client DEBUG    Received response(xid=11): ZnodeStat(czxid=3173, mzxid=3173, ctime=1510207920301, mtime=1510207920301, version=0, cversion=1, aversion=0, ephemeralOwner=0, dataLength=0, numChildren=1, pzxid=3174)
+2017-11-09 14:09:51,839 kazoo.client DEBUG    Sending request(xid=12): Create(path='/jrpc/python_test$EchoService/statistics', data=b'', acl=[ACL(perms=31, acl_list=['ALL'], id=Id(scheme='world', id='anyone'))], flags=0)
+2017-11-09 14:09:51,840 kazoo.client DEBUG    Received response(xid=12): '/jrpc/python_test$EchoService/statistics'
+2017-11-09 14:09:51,841 kazoo.client DEBUG    Sending request(xid=13): Create(path='/jrpc/python_test$EchoService/statistics/clients', data=b'', acl=[ACL(perms=31, acl_list=['ALL'], id=Id(scheme='world', id='anyone'))], flags=0)
+2017-11-09 14:09:51,842 kazoo.client DEBUG    Received response(xid=13): '/jrpc/python_test$EchoService/statistics/clients'
+2017-11-09 14:09:51,846 kazoo.client DEBUG    Sending request(xid=14): Create(path='/jrpc/python_test$EchoService/clients/10.33.92.8:0:i_', data=b'', acl=[ACL(perms=31, acl_list=['ALL'], id=Id(scheme='world', id='anyone'))], flags=3)
+2017-11-09 14:09:51,847 kazoo.client DEBUG    Received response(xid=14): '/jrpc/python_test$EchoService/clients/10.33.92.8:0:i_0000000000'
+2017-11-09 14:09:51,847 kazoo.client DEBUG    Sending request(xid=15): SetData(path='/jrpc/python_test$EchoService/clients/10.33.92.8:0:i_0000000000', data=b'{"name": "python_test$EchoService", "owner": "wangmiaomiao@jiangduoduo.com", "retry": 3, "ip": "10.33.92.8", "service": "python_test$EchoService", "monitor": false, "interval": null, "loadbalance": "jdd.prpc.loadbalancing_strategy.round_robin_strategy.RoundRobinStrategy"}', version=-1)
+2017-11-09 14:09:51,850 kazoo.client DEBUG    Received response(xid=15): ZnodeStat(czxid=3178, mzxid=3179, ctime=1510207920314, mtime=1510207920316, version=1, cversion=0, aversion=0, ephemeralOwner=98859926234726550, dataLength=272, numChildren=0, pzxid=3178)
+2017-11-09 14:09:51,850 kazoo.client DEBUG    Sending request(xid=16): GetChildren(path='/jrpc/python_test$EchoService/servers', watcher=None)
+2017-11-09 14:09:51,851 kazoo.client DEBUG    Received error(xid=16) NoNodeError()
+2017-11-09 14:09:51,851 jdd.prpc.client ERROR    
+Traceback (most recent call last):
+  File "D:\pythonspace\lightweight\prpc\src\main\python\jdd\prpc\client.py", line 78, in __init__
+    self._dynamic_host_set.reset_with_list(self._zkclient.get_children(self._server_path))
+  File "D:\Program Files\Python\Python36\lib\site-packages\kazoo\client.py", line 1102, in get_children
+    return self.get_children_async(path, watch, include_data).get()
+  File "D:\Program Files\Python\Python36\lib\site-packages\kazoo\handlers\utils.py", line 79, in get
+    raise self._exception
+kazoo.exceptions.NoNodeError
