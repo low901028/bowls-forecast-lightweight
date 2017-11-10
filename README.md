@@ -1,1 +1,4 @@
 #bowls-forecast-lightweight
+通过rpc实现java与python语言间的互通，充分利用两种语言的应用和擅长领域的优势；
+又不失两种语言的独立使用
+主要基于thrift来完成rpc交互的整个过程，增加zookeeper加强rpc框架的高可用
