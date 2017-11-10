@@ -11,7 +11,7 @@ public class Constants {
     public static final String UTF8 = "utf-8";
 
     /** zookeeper根目录 */
-    public static final String ZK_NAMESPACE_ROOT = "jrpc";
+    public static final String ZK_NAMESPACE_ROOT = "pjrpc";
 
     /** zookeeper目录分割符 */
     public static final String ZK_SEPARATOR_DEFAULT = "/";

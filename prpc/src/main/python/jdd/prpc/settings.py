@@ -5,7 +5,7 @@ common config
 """
 # zk_path_setting
 DEFAULT_ZK_NAMESPACE_SERVERS = "servers"
-DEFAULT_ZK_NAMESPACE_ROOT = "jrpc"
+DEFAULT_ZK_NAMESPACE_ROOT = "pjrpc"
 DEFAULT_ZK_NAMESPACE_STATISTICS = "statistics"
 DEFAULT_ZK_NAMESPACE_CLIENTS = "clients"
 ZK_AUTH_USER = "admin"
