@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 import logging
 
 import pandas as pd
@@ -42,7 +38,6 @@ class BaseEntity(FTBase):
             index (Optional(str)) : Id of index variable. Ignored if entityset provided
             time_index (Optional(str)) : Id of time index variable. Ignored if entityset provided
         """
-        #assert isinstance(id, basestring), "Entity id must be a string"
         assert isinstance(id, str), "Entity id must be a string"
 
         self.id = id
@@ -63,7 +58,6 @@ class BaseEntity(FTBase):
         inferred_variable_types = self.infer_variable_types(ignore=variable_types.keys(),
                                                             link_vars=link_vars)
         for var_id, desired_type in variable_types.items():
-        #for var_id, desired_type in variable_types.iteritems():
             if isinstance(desired_type, tuple):
                 desired_type = desired_type[0]
             inferred_variable_types.update({var_id: desired_type})

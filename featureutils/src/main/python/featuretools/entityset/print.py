@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 def print_graph(self, start_eid):
     """
     Print a representation of the entityset with parents & children, like

@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 import itertools
 import logging
 from collections import defaultdict
@@ -9,12 +5,12 @@ from collections import defaultdict
 from ..utils import gen_utils as utils
 
 from featuretools.exceptions import UnknownFeature
-
-from featuretools.primitives.aggregation_primitives import AggregationPrimitive
-from featuretools.primitives.direct_feature import DirectFeature
-from featuretools.primitives.aggregation_primitives import Mode
-from featuretools.primitives.transform_primitive import TransformPrimitive
-from featuretools.primitives.primitive_base import IdentityFeature
+from featuretools.primitives import (
+    AggregationPrimitive,
+    DirectFeature,
+    IdentityFeature,
+    TransformPrimitive
+)
 
 logger = logging.getLogger('featuretools.computational_backend')
 
@@ -75,7 +71,7 @@ class FeatureTree(object):
         dependencies.
         """
         entity_deps = defaultdict(set)
-        for e, features in self.top_level_features.iteritems():
+        for e, features in self.top_level_features.items():
             # iterate over all dependency features of the top-level features on
             # this entity. If any of these are themselves top-level features, add
             # their entities as dependencies of the current entity.

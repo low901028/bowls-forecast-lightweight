@@ -1,13 +1,9 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 import pandas as pd
 
 from .deep_feature_synthesis import DeepFeatureSynthesis
 
 from featuretools.computational_backends import calculate_feature_matrix
-from featuretools.entityset import entityset as EntitySet
+from featuretools.entityset import EntitySet
 
 
 def dfs(entities=None,

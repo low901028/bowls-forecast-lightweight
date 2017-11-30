@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 import pandas as pd
 from numpy import random
 from numpy.random import choice

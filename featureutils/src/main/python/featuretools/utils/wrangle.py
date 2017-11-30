@@ -83,7 +83,7 @@ def _check_timedelta(td, entity_id=None, related_entity_id=None):
         if td.entity is not None and related_entity_id is not None and td.entity == related_entity_id:
             raise ValueError("Timedelta entity {} same as passed related entity {}".format(td.entity, related_entity_id))
         return td
-    elif not isinstance(td, (basestring, tuple, int, float)):
+    elif not isinstance(td, (str, tuple, int, float)):
         raise ValueError("Unable to parse timedelta: {}".format(td))
 
     # TODO: allow observations from an entity in string

@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 import copy
 import logging
 import pdb
@@ -10,7 +6,7 @@ from numpy import nan
 
 import featuretools as ft
 from featuretools.core.base import FTBase
-from featuretools.entityset import entity as Entity, entityset as EntitySet
+from featuretools.entityset import Entity, EntitySet
 from featuretools.utils.wrangle import (
     _check_time_against_column,
     _check_timedelta

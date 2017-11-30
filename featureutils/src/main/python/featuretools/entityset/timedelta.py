@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 from datetime import datetime
 
 import numpy as np
@@ -75,7 +71,6 @@ class Timedelta(FTBase):
                 exactly timedelta distance away from the original time/observation
         """
         # TODO: check if value is int or float
-        #if isinstance(value, basestring):
         if isinstance(value, str):
             from featuretools.utils.wrangle import _check_timedelta
             td = _check_timedelta(value)

@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 import logging
 import sys
 from collections import defaultdict
@@ -271,7 +267,7 @@ class DeepFeatureSynthesis(object):
 
             return True
 
-        new_features = filter(filt, new_features)
+        new_features = list(filter(filt, new_features))
 
         # sanity check for duplicate features
         l = [f.hash() for f in new_features]
@@ -494,7 +490,7 @@ class DeepFeatureSynthesis(object):
                 has features as values with their ids as keys
             entity (:class:`.Entity`): entity to calculate features for
         """
-        identities = [f for _, f in all_features[entity.id].iteritems()
+        identities = [f for _, f in all_features[entity.id].items()
                       if isinstance(f, IdentityFeature)]
 
         for feat in identities:

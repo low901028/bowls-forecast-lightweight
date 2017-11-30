@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 import cloudpickle
 
 import featuretools as ft
@@ -19,7 +15,7 @@ def save_features(features, filepath):
         .. ipython:: python
             :suppress:
 
-            from featuretools.jdd.tests.testing_utils import (
+            from featuretools.tests.testing_utils import (
                 make_ecommerce_entityset)
             from featuretools.primitives import Feature
             import featuretools as ft
@@ -65,7 +61,7 @@ def load_features(filepath, entityset):
         .. ipython:: python
             :suppress:
 
-            from featuretools.jdd.tests.testing_utils import (
+            from featuretools.tests.testing_utils import (
                 make_ecommerce_entityset)
             from featuretools.primitives import Feature
             import featuretools as ft

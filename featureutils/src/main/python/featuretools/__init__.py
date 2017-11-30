@@ -1,13 +1,15 @@
-import featuretools.config
+# flake8: noqa
+from . import config
 from .core import *
-import featuretools.variable_types
+from . import variable_types
 from .entityset.api import *
 from . import primitives
 from .synthesis.api import *
-from featuretools.primitives.primitive_base import Feature
+from .primitives import Feature
 from .computational_backends.api import *
 from . import tests
 from .utils.pickle_utils import *
 import featuretools.demo
+from .demo import *
 
 __version__ = '0.1.14'

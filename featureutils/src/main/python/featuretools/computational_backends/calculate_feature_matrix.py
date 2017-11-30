@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 import gc
 import logging
 import os
@@ -16,18 +12,11 @@ from pandas.tseries.frequencies import to_offset
 
 from .pandas_backend import PandasBackend
 
-# from featuretools.primitives import (
-#     AggregationPrimitive,
-#     DirectFeature,
-#     PrimitiveBase
-# )
-
-from ..primitives.aggregation_primitives import AggregationPrimitive
-from ..primitives.direct_feature import DirectFeature
-from ..primitives.aggregation_primitives import Mode
-from ..primitives.transform_primitive import TransformPrimitive
-from ..primitives.primitive_base import IdentityFeature
-
+from featuretools.primitives import (
+    AggregationPrimitive,
+    DirectFeature,
+    PrimitiveBase
+)
 from featuretools.utils.gen_utils import make_tqdm_iterator
 from featuretools.utils.wrangle import _check_timedelta
 

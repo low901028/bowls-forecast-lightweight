@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 def remove_low_information_features(feature_matrix, features=None):
     """Select features that have at least 2 unique values and that are not all null
 

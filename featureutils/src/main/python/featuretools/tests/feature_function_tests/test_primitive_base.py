@@ -1,9 +1,7 @@
 import pytest
-
-from featuretools.primitives.aggregation_primitives import Sum, Last
-from featuretools.primitives.primitive_base import IdentityFeature, Feature
 from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
 
+from featuretools.primitives import Feature, IdentityFeature, Last, Sum
 from featuretools.utils.gen_utils import getsize
 
 

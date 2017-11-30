@@ -1,9 +1,8 @@
 import pytest
-
 from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
 
 from featuretools import calculate_feature_matrix
-from featuretools.primitives.cum_transform_feature import IdentityFeature
+from featuretools.primitives import IdentityFeature
 from featuretools.synthesis import encode_features
 
 

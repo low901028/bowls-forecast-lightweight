@@ -7,18 +7,23 @@ from random import randint
 import numpy as np
 import pandas as pd
 import pytest
+from dask.order import dfs
 
 from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
 
-from featuretools import EntitySet, Timedelta, calculate_feature_matrix, dfs
+from featuretools import EntitySet, Timedelta, calculate_feature_matrix
 from featuretools.computational_backends.calculate_feature_matrix import (
     bin_cutoff_times
 )
+from featuretools.primitives import (
+    AggregationPrimitive,
+    Count,
+    DirectFeature,
+    IdentityFeature,
+    Min,
+    Sum
+)
 
-from featuretools.primitives.aggregation_primitive_base import AggregationPrimitive
-from featuretools.primitives.aggregation_primitives import (Count,Min,Sum)
-from featuretools.primitives.direct_feature import DirectFeature
-from featuretools.primitives.cum_transform_feature import IdentityFeature
 
 
 @pytest.fixture(scope='module')

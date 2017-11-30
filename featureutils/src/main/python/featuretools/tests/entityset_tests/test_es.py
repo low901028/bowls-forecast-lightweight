@@ -1,6 +1,6 @@
 import pytest
-
 from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
+
 from featuretools.tests import integration_data
 from featuretools import Relationship, variable_types, EntitySet
 import os

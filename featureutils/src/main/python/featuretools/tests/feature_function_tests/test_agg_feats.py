@@ -2,23 +2,24 @@ from datetime import datetime
 
 import pandas as pd
 import pytest
+from dask.order import dfs
 
 from featuretools.tests.testing_utils.features import feature_with_name
-from featuretools.tests.testing_utils.mock_ds import  make_ecommerce_entityset
 
-from featuretools import calculate_feature_matrix, dfs
+from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
 
-from featuretools.primitives.aggregation_primitives import TimeSinceLast
-from featuretools.primitives.utils import get_aggregation_primitives
-from featuretools.primitives.aggregation_primitive_base import (make_agg_primitive)
-from featuretools.primitives.primitive_base import (Feature)
-from featuretools.primitives.aggregation_primitives import (AggregationPrimitive)
-from featuretools.primitives.aggregation_primitives import (Count,
-                                                            Sum,
-                                                            Mean,
-                                                            NumTrue
-                                                            )
-
+from featuretools import calculate_feature_matrix
+from featuretools.primitives import (
+    AggregationPrimitive,
+    Count,
+    Feature,
+    Mean,
+    NumTrue,
+    Sum,
+    TimeSinceLast,
+    get_aggregation_primitives,
+    make_agg_primitive
+)
 from featuretools.synthesis.deep_feature_synthesis import (
     DeepFeatureSynthesis,
     check_stacking,

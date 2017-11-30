@@ -1,12 +1,12 @@
 import pandas as pd
 import pytest
+from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
 from toolz import merge
 
-from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
 
-from featuretools.entityset.timedelta import Timedelta
+from featuretools.entityset import Timedelta
 from featuretools.exceptions import NotEnoughData
-from featuretools.primitives.cum_transform_feature import Count  # , SlidingMean
+from featuretools.primitives import Count  # , SlidingMean
 from featuretools.utils.wrangle import _check_timedelta
 
 

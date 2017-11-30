@@ -2,7 +2,7 @@
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Python" name="Python">
-      <configuration sdkName="Python 3.6.2 (D:\Program Files\Python\Python36\python.exe)" />
+      <configuration sdkName="Python 3.6.2 (D:\Program Files\Python\Python36\python3.exe)" />
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5" inherit-compiler-output="false">
@@ -14,8 +14,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/python" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.6.2 (D:\Program Files\Python\Python36\python.exe)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6.2 (D:\Program Files\Python\Python36\python3.exe)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Python 3.6.2 (D:\Program Files\Python\Python36\python.exe) interpreter library" level="application" />
+    <orderEntry type="library" name="Python 3.6.2 (D:\Program Files\Python\Python36\python3.exe) interpreter library" level="application" />
   </component>
 </module>

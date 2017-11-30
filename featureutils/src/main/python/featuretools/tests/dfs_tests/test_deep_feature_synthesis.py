@@ -4,27 +4,31 @@ import os
 import numpy as np
 import pandas as pd
 import pytest
-
-from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
 from featuretools.tests.testing_utils.features import feature_with_name
 
-import featuretools as ft
-
-from featuretools.primitives.aggregation_primitive_base import make_agg_primitive
-from featuretools.primitives.cum_transform_feature import (CumMean)
-from featuretools.primitives.primitive_base import (Feature)
-from featuretools.primitives.transform_primitive import (Hour,TimeSincePrevious,Diff)
-from featuretools.primitives.aggregation_primitives import (AggregationPrimitive)
-from featuretools.primitives.direct_feature import (DirectFeature)
-from featuretools.primitives.cum_transform_feature import (IdentityFeature)
-from featuretools.primitives.binary_transform import (Add,TransformPrimitive)
-from featuretools.primitives.aggregation_primitives import (Count,
-                                                            Sum,
-                                                            Mean,
-                                                            Last
-                                                            )
-
 from featuretools.synthesis.deep_feature_synthesis import DeepFeatureSynthesis
+
+from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
+
+import featuretools as ft
+from featuretools.primitives import (
+    Add,
+    AggregationPrimitive,
+    Count,
+    CumMean,
+    Diff,
+    DirectFeature,
+    Feature,
+    Hour,
+    IdentityFeature,
+    Last,
+    Mean,
+    Sum,
+    TimeSincePrevious,
+    TransformPrimitive,
+    make_agg_primitive
+)
+
 from featuretools.utils.gen_utils import getsize
 from featuretools.utils.pickle_utils import save_obj_pickle
 from featuretools.variable_types import Numeric

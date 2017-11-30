@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 import copy
 import logging
 import time
@@ -82,8 +78,8 @@ class Entity(BaseEntity):
                     pass
 
     def convert_variable_types(self, variable_types):
+        # for var_id, desired_type in variable_types.iteritems(): # python 2
         for var_id, desired_type in variable_types.items():
-        #for var_id, desired_type in variable_types.iteritems():
             type_args = {}
             if isinstance(desired_type, tuple):
                 # grab args before assigning type
@@ -316,7 +312,7 @@ class Entity(BaseEntity):
         index = self.indexed_by[variable_id]
 
         if self._verbose:
-            print("Indexing '%s' in %d groups by variable '%s'" %\
+            print( "Indexing '%s' in %d groups by variable '%s'" %\
                 (self.id, len(gb.groups), variable_id))
 
         # index by each parent instance separately
@@ -345,7 +341,7 @@ class Entity(BaseEntity):
         df = self.df
         vids_to_assume_datetime = [self.time_index]
         if len(self.secondary_time_index.keys()):
-            vids_to_assume_datetime.append(self.secondary_time_index.keys())
+            vids_to_assume_datetime.append(self.secondary_time_index.keys()[0])
         inferred_type = vtypes.Unknown
         for variable in df.columns:
             if variable in ignore:

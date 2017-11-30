@@ -1,14 +1,10 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
-from featuretools.primitives.aggregation_primitives import AggregationPrimitive
-from featuretools.primitives.direct_feature import DirectFeature
-from featuretools.primitives.aggregation_primitives import Mode
-from featuretools.primitives.transform_primitive import TransformPrimitive
-from featuretools.primitives.primitive_base import IdentityFeature
-
-
+from featuretools.primitives import (
+    AggregationPrimitive,
+    DirectFeature,
+    IdentityFeature,
+    Mode,
+    TransformPrimitive
+)
 from featuretools.variable_types import Discrete
 
 

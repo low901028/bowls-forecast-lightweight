@@ -4,11 +4,10 @@ from datetime import datetime
 import numpy as np
 import pandas as pd
 import pytest
-
 from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset, save_to_csv
 
 from featuretools import variable_types, Relationship
-from featuretools.entityset.entityset import EntitySet
+from featuretools.entityset import EntitySet
 
 
 @pytest.fixture()

@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 import copy
 import itertools
 import logging
@@ -406,22 +402,18 @@ class EntitySet(BaseEntitySet):
 
             if time_index_components:
                 parse_dates = {time_index: time_index_components}
-                df = read_csv(csv_path,
-                              #low_memory=False,
+                df = read_csv(csv_path, low_memory=False,
                               parse_dates=parse_dates,
                               compression=compression,
                               usecols=use_variables,
                               encoding=encoding,
-                              engine='python',
                               **kwargs)
             else:
-                df = read_csv(csv_path,
-                              #low_memory=False,
+                df = read_csv(csv_path, low_memory=False,
                               parse_dates=parse_date_cols,
                               compression=compression,
                               usecols=use_variables,
                               encoding=encoding,
-                              engine='python',
                               **kwargs)
 
             if glob:
@@ -920,8 +912,7 @@ class EntitySet(BaseEntitySet):
         new_data = None
         for v in to_combine:
             if new_data is None:
-                #new_data = df[v.id].map(unicode)
-                new_data = df[v.id].map(str)
+                new_data = df[v.id].map(unicode)
                 continue
             new_data += "_"
             new_data = new_data + df[v.id].map(str)
@@ -1016,7 +1007,8 @@ class EntitySet(BaseEntitySet):
             child_vars[r.parent_entity.id][r.child_entity.id] = r.child_variable
 
         explored = set([])
-        queue = self.entities[:]
+        queue = list(self.entities)
+        #queue = self.entities[:]
 
         for entity in self.entities:
             entity.set_last_time_index(None)
@@ -1233,7 +1225,9 @@ class EntitySet(BaseEntitySet):
                     # original parent's id.
                     col_map = {r.parent_variable.id: r.child_variable.id,
                                parent_link_name: child_link_name}
-                    merge_df = parent_df[col_map.keys()].rename(columns=col_map)
+                    # python2
+                    #merge_df = parent_df[col_map.keys()].rename(columns=col_map)
+                    merge_df = parent_df[list(frozenset(col_map.keys()))].rename(columns=col_map)
 
                     # merge the dataframe, adding the link variable to the child
                     frames[child_entity.id] = pd.merge(left=merge_df,

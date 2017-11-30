@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
 import sys
 from collections import Mapping, Set, deque
 from numbers import Number

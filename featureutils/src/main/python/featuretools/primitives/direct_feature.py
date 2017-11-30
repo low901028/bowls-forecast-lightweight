@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 from .primitive_base import PrimitiveBase
 
 from featuretools.variable_types import Variable

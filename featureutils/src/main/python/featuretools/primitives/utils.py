@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 from inspect import getargspec, isclass
 
 import pandas as pd
@@ -77,10 +73,10 @@ def ensure_compatible_dtype(left, right):
         elif right.dtype != object and left.dtype == object:
             right = right.astype(object)
     elif isinstance(left, pd.Series):
-        if left.dtype != object and isinstance(right, basestring):
+        if left.dtype != object and isinstance(right, str):
             left = left.astype(object)
     elif isinstance(right, pd.Series):
-        if right.dtype != object and isinstance(left, basestring):
+        if right.dtype != object and isinstance(left, str):
             right = right.astype(object)
     return left, right
 

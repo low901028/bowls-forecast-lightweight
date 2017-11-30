@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 import logging
 import os
 import sys
@@ -59,7 +55,6 @@ def initialize_logging(config):
 
     for name, level in loggers.items():
         #LEVEL = logging._levelNames[level.upper()]
-        #LEVEL = logging._levelToName[level.upper()]
         LEVEL = logging._nameToLevel[level.upper()]
         logger = logging.getLogger(name)
         logger.setLevel(LEVEL)

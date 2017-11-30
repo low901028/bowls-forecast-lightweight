@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 import logging
 
 from featuretools import variable_types as vtypes
@@ -132,7 +128,6 @@ class BaseEntitySet(FTBase):
         fmat = self.id
         repr_out = u"Entityset: {}\n".format(fmat)
         repr_out += u"  Entities:"
-
         for e in self.entities[:5]:
             if e.df.shape:
                 repr_out += u"\n    {} (shape = [{}, {}])".format(e.id, e.df.shape[0], e.df.shape[1])

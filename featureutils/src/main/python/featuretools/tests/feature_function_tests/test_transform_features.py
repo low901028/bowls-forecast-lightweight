@@ -1,42 +1,47 @@
 import numpy as np
 import pandas as pd
 import pytest
-
 from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
 
 from featuretools import Timedelta
 from featuretools.computational_backends import PandasBackend
-
-from featuretools.primitives.cum_transform_feature import (CumCount,
-                                                           CumMax,
-                                                           CumMean,
-                                                           CumMin,
-                                                           CumSum,)
-from featuretools.primitives.utils import get_transform_primitives
-from featuretools.primitives.primitive_base import (Feature)
-from featuretools.primitives.transform_primitive import (Hour, Diff, Percentile, Not, make_trans_primitive, Day, IsIn,
-                                                         IsNull)
-from featuretools.primitives.direct_feature import (DirectFeature)
-from featuretools.primitives.cum_transform_feature import (IdentityFeature)
-from featuretools.primitives.binary_transform import (Add,
-                                                      And,
-                                                      Compare,
-                                                      NotEquals,
-                                                      Or,
-                                                      Negate,
-                                                      Multiply,
-                                                      Subtract,
-                                                      Mod,
-                                                      LessThan,
-                                                      LessThanEqualTo,
-                                                      GreaterThan,
-                                                      GreaterThanEqualTo,
-                                                      Equals, Divide)
-from featuretools.primitives.aggregation_primitives import (Count,
-                                                             Sum,
-                                                             Mode,
-                                                            )
-
+from featuretools.primitives import (
+    Add,
+    And,
+    Compare,
+    Count,
+    CumCount,
+    CumMax,
+    CumMean,
+    CumMin,
+    CumSum,
+    Day,
+    Diff,
+    DirectFeature,
+    Divide,
+    Equals,
+    Feature,
+    GreaterThan,
+    GreaterThanEqualTo,
+    Hour,
+    IdentityFeature,
+    IsIn,
+    IsNull,
+    LessThan,
+    LessThanEqualTo,
+    Mod,
+    Mode,
+    Multiply,
+    Negate,
+    Not,
+    NotEquals,
+    Or,
+    Percentile,
+    Subtract,
+    Sum,
+    get_transform_primitives,
+    make_trans_primitive
+)
 from featuretools.synthesis.deep_feature_synthesis import match
 from featuretools.variable_types import Boolean, Datetime, Numeric, Variable
 

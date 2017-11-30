@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 class NotEnoughData(Exception):
 
     def __init__(self, *args, **kwargs):

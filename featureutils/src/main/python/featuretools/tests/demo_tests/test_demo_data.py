@@ -1,6 +1,6 @@
 import os
 
-from featuretools.demo.retail import load_retail
+from featuretools.demo import load_retail
 from featuretools.demo.retail import make_retail_pathname
 
 
@@ -27,3 +27,4 @@ def test_load_retail_diff():
 if __name__ == '__main__':
     test_load_retail_save()
     test_load_retail_diff()
+

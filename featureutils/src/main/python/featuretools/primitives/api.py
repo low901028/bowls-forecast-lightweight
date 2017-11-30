@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
 # flake8: noqa
 from .aggregation_primitive_base import *
 from .aggregation_primitives import *

@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 import pandas as pd
 
 from featuretools.utils.gen_utils import make_tqdm_iterator
@@ -31,7 +27,7 @@ def encode_features(feature_matrix, features, top_n=10, include_unknown=True,
             .. ipython:: python
                 :suppress:
 
-                from featuretools.jdd.tests.testing_utils import make_ecommerce_entityset
+                from featuretools.tests.testing_utils import make_ecommerce_entityset
                 from featuretools.primitives import Feature
                 import featuretools as ft
                 es = make_ecommerce_entityset()

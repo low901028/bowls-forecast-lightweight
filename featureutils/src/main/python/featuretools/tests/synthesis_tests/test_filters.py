@@ -1,9 +1,7 @@
 import pytest
-
 from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
 
-from featuretools.primitives.primitive_base import Feature
-from featuretools.primitives.aggregation_primitives import  Mode
+from featuretools.primitives import Feature, Mode
 from featuretools.synthesis import dfs_filters as filt
 
 

@@ -7,9 +7,7 @@ import numpy as np
 import pandas as pd
 
 from featuretools import variable_types
-#from featuretools.entityset import EntitySet, Relationship
-from featuretools.entityset.entityset import EntitySet
-from featuretools.entityset.entityset import Relationship
+from featuretools.entityset import EntitySet, Relationship
 from featuretools.tests import integration_data
 
 
@@ -31,7 +29,7 @@ def make_ecommerce_files(with_integer_time_index=False, base_path=None, file_loc
 
     store_df = pd.DataFrame({'id': range(6),
                              'region_id': ['United States'] * 3 + ['Mexico'] * 2 + [np.nan],
-                             'num_square_feet': list(range(30000, 60000, 6000)) + [np.nan]})
+                             'num_square_feet': range(30000, 60000, 6000) + [np.nan]})
 
     product_df = pd.DataFrame({'id': ['Haribo sugar-free gummy bears', 'car',
                                       'toothpaste', 'brown bag', 'coke zero',

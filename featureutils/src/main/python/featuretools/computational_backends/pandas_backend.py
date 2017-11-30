@@ -1,9 +1,5 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# coding=utf-8
-
 import cProfile
-import io as cStringIO # python 3 cStringIO已不存在
+import io as cStringIO
 import logging
 import os
 import pstats
@@ -22,13 +18,12 @@ from .feature_tree import FeatureTree
 from featuretools import variable_types
 from featuretools.entityset.relationship import Relationship
 from featuretools.exceptions import UnknownFeature
-
-from featuretools.primitives.aggregation_primitives import AggregationPrimitive
-from featuretools.primitives.direct_feature import DirectFeature
-from featuretools.primitives.aggregation_primitives import Mode
-from featuretools.primitives.transform_primitive import TransformPrimitive
-from featuretools.primitives.primitive_base import IdentityFeature
-
+from featuretools.primitives import (
+    AggregationPrimitive,
+    DirectFeature,
+    IdentityFeature,
+    TransformPrimitive
+)
 # progress bar
 from featuretools.utils.gen_utils import make_tqdm_iterator
 
@@ -440,7 +435,7 @@ class PandasBackend(ComputationalBackend):
                                 for n1, n2 in to_merge.columns.ravel()]
             # to enable a rename
             to_merge = to_merge.rename(columns=agg_rename)
-            variables = agg_rename.values()
+            variables = list(agg_rename.values())
             to_merge = to_merge[variables]
             frame = pd.merge(left=frame, right=to_merge,
                              left_on=index_var, right_index=True, how='left')
