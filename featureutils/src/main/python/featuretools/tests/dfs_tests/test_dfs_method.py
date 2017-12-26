@@ -1,10 +1,10 @@
 import pandas as pd
 import pytest
-from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
+
+from ..testing_utils import make_ecommerce_entityset
 
 from featuretools.primitives import Max, Mean, Min, Sum
 from featuretools.synthesis import dfs
-
 
 
 @pytest.fixture(scope='module')

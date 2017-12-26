@@ -1,8 +1,8 @@
 import pandas as pd
 import pytest
-from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
 from toolz import merge
 
+from ..testing_utils import make_ecommerce_entityset
 
 from featuretools.entityset import Timedelta
 from featuretools.exceptions import NotEnoughData
@@ -86,8 +86,8 @@ def test_delta_with_time_unit_matches_pandas(es):
 
 
 def test_check_timedelta(es):
-    time_units = Timedelta._readable_units.keys()
-    expanded_units = Timedelta._readable_units.values()
+    time_units = list(Timedelta._readable_units.keys())
+    expanded_units = list(Timedelta._readable_units.values())
     exp_to_standard_unit = {e: t for e, t in zip(expanded_units, time_units)}
     singular_units = [u[:-1] for u in expanded_units]
     sing_to_standard_unit = {s: t for s, t in zip(singular_units, time_units)}

@@ -4,11 +4,8 @@ import os
 import numpy as np
 import pandas as pd
 import pytest
-from featuretools.tests.testing_utils.features import feature_with_name
 
-from featuretools.synthesis.deep_feature_synthesis import DeepFeatureSynthesis
-
-from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
+from ..testing_utils import feature_with_name, make_ecommerce_entityset
 
 import featuretools as ft
 from featuretools.primitives import (
@@ -28,7 +25,7 @@ from featuretools.primitives import (
     TransformPrimitive,
     make_agg_primitive
 )
-
+from featuretools.synthesis import DeepFeatureSynthesis
 from featuretools.utils.gen_utils import getsize
 from featuretools.utils.pickle_utils import save_obj_pickle
 from featuretools.variable_types import Numeric

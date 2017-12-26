@@ -1,5 +1,6 @@
 import pytest
-from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
+
+from ..testing_utils import make_ecommerce_entityset
 
 from featuretools.computational_backends import PandasBackend
 from featuretools.primitives import DirectFeature
@@ -39,5 +40,5 @@ def test_direct_rename(es):
     copy_feat = feat.rename("session_test")
     assert feat.hash() != copy_feat.hash()
     assert feat.get_name() != copy_feat.get_name()
-    assert feat.base_features[0]._get_name() == copy_feat.base_features[0]._get_name()
+    assert feat.base_features[0].generate_name() == copy_feat.base_features[0].generate_name()
     assert feat.entity == copy_feat.entity

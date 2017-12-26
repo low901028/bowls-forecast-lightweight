@@ -1,5 +1,6 @@
 import logging
 import sys
+from builtins import filter, object, str
 from collections import defaultdict
 
 from .dfs_filters import LimitModeUniques, TraverseUp
@@ -148,7 +149,7 @@ class DeepFeatureSynthesis(object):
 
         self.ignore_variables = defaultdict(set)
         if ignore_variables is not None:
-            for eid, vars in ignore_variables.iteritems():
+            for eid, vars in ignore_variables.items():
                 self.ignore_variables[eid] = set(vars)
         self.target_entity_id = target_entity_id
         self.es = entityset
@@ -223,7 +224,7 @@ class DeepFeatureSynthesis(object):
         self._run_dfs(self.es[self.target_entity_id], [],
                       all_features, max_depth=self.max_depth)
 
-        new_features = all_features[self.target_entity_id].values()
+        new_features = list(all_features[self.target_entity_id].values())
 
         if variable_types is None:
             variable_types = [Numeric,

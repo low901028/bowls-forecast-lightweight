@@ -1,3 +1,4 @@
+import copy
 import functools
 
 from .primitive_base import PrimitiveBase
@@ -62,7 +63,7 @@ class AggregationPrimitive(PrimitiveBase):
         return u', ' \
             .join([bf.get_name() for bf in self.base_features])
 
-    def _get_name(self):
+    def generate_name(self):
         where_str = self._where_str()
         use_prev_str = self._use_prev_str()
 
@@ -140,7 +141,7 @@ def make_agg_primitive(function, input_types, return_type, name=None,
     cls = {"__doc__": description}
     if cls_attributes is not None:
         cls.update(cls_attributes)
-    name = name or function.func_name
+    name = name or function.__name__
     new_class = type(name, (AggregationPrimitive,), cls)
     new_class.name = name
     new_class.input_types = input_types
@@ -151,12 +152,12 @@ def make_agg_primitive(function, input_types, return_type, name=None,
     new_class.base_of = base_of
     new_class.base_of_exclude = base_of_exclude
     new_class.associative = associative
-    new_class, kwargs = inspect_function_args(new_class,
-                                              function,
-                                              uses_calc_time)
+    new_class, default_kwargs = inspect_function_args(new_class,
+                                                      function,
+                                                      uses_calc_time)
 
-    if len(kwargs) > 0:
-        new_class.kwargs = kwargs
+    if len(default_kwargs) > 0:
+        new_class.default_kwargs = default_kwargs
 
         def new_class_init(self, base_features, parent_entity,
                            use_previous=None, where=None, **kwargs):
@@ -183,7 +184,8 @@ def make_agg_primitive(function, input_types, return_type, name=None,
                     " doesn't have one")
 
             self.use_previous = use_previous
-            self.kwargs = kwargs
+            self.kwargs = copy.deepcopy(self.default_kwargs)
+            self.kwargs.update(kwargs)
             self.partial = functools.partial(function, **self.kwargs)
             super(AggregationPrimitive, self).__init__(parent_entity,
                                                        self.base_features)
@@ -196,7 +198,7 @@ def make_agg_primitive(function, input_types, return_type, name=None,
     # infers default_value by passing empty data
     try:
         new_class.default_value = function(*[[]] * len(input_types))
-    except:
+    except Exception:
         pass
 
     return new_class

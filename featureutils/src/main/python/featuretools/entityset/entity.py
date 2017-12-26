@@ -1,6 +1,9 @@
+from __future__ import division, print_function
+
 import copy
 import logging
 import time
+from builtins import range
 from datetime import datetime
 
 import numpy as np
@@ -78,7 +81,6 @@ class Entity(BaseEntity):
                     pass
 
     def convert_variable_types(self, variable_types):
-        # for var_id, desired_type in variable_types.iteritems(): # python 2
         for var_id, desired_type in variable_types.items():
             type_args = {}
             if isinstance(desired_type, tuple):
@@ -103,7 +105,7 @@ class Entity(BaseEntity):
                 self.entityset_convert_variable_type(var_id, desired_type, **type_args)
 
     def normalize(self, normalizer):
-        d = {k: v for k, v in self.__dict__.iteritems()
+        d = {k: v for k, v in self.__dict__.items()
              if k not in ['df', 'indexed_by', 'entityset']}
         return normalizer(d)
 
@@ -312,16 +314,16 @@ class Entity(BaseEntity):
         index = self.indexed_by[variable_id]
 
         if self._verbose:
-            print( "Indexing '%s' in %d groups by variable '%s'" %\
-                (self.id, len(gb.groups), variable_id))
+            print("Indexing '%s' in %d groups by variable '%s'" %
+                  (self.id, len(gb.groups), variable_id))
 
         # index by each parent instance separately
         for i in gb.groups:
             index[i] = np.array(gb.groups[i])
 
         if self._verbose:
-            print("...%d child instances took %.2f seconds" %\
-                (len(self.df.index), time.time() - ts))
+            print("...%d child instances took %.2f seconds" %
+                  (len(self.df.index), time.time() - ts))
 
     def infer_variable_types(self, ignore=None, link_vars=None):
         """Extracts the variables from a dataframe
@@ -340,8 +342,8 @@ class Entity(BaseEntity):
         inferred_types = {}
         df = self.df
         vids_to_assume_datetime = [self.time_index]
-        if len(self.secondary_time_index.keys()):
-            vids_to_assume_datetime.append(self.secondary_time_index.keys()[0])
+        if len(list(self.secondary_time_index.keys())):
+            vids_to_assume_datetime.append(list(self.secondary_time_index.keys())[0])
         inferred_type = vtypes.Unknown
         for variable in df.columns:
             if variable in ignore:
@@ -387,7 +389,7 @@ class Entity(BaseEntity):
                     .sample(min(10000, df[variable].nunique(dropna=False)))
 
                 unique = sample.unique()
-                percent_unique = sample.size / float(len(unique))
+                percent_unique = sample.size / len(unique)
 
                 if percent_unique < .05:
                     inferred_type = vtypes.Categorical
@@ -417,8 +419,10 @@ class Entity(BaseEntity):
         return copied
 
     def add_interesting_values(self, max_values=5, verbose=False):
-        """Find interesting values for categorical variables, to be used to
+        """
+        Find interesting values for categorical variables, to be used to
             generate "where" clauses
+
         Args:
             max_values (int) : maximum number of values per variable to add
             verbose (bool) : If True, print summary of interesting values found
@@ -459,7 +463,7 @@ class Entity(BaseEntity):
                             logger.info(msg.format(variable.id, idx))
                         variable.interesting_values += [idx]
                     else:
-                        fraction = float(counts[idx]) / total_count
+                        fraction = counts[idx] / total_count
                         if fraction > 0.05 and fraction < 0.95:
                             if verbose:
                                 msg = "Variable {}: Marking {} as an "
@@ -652,7 +656,7 @@ def col_is_datetime(col):
     elif col.dtype.name.find('str') > -1 or col.dtype.name.find('object') > -1:
         try:
             pd.to_datetime(col.dropna().iloc[:10], errors='raise')
-        except:
+        except Exception:
             return False
         else:
             return True

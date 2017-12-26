@@ -1,2 +1,3 @@
+from __future__ import absolute_import
 # flake8: noqa
-from ..synthesis.api import *
+from .api import *

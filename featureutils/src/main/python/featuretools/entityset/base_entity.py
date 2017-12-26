@@ -1,6 +1,10 @@
+from __future__ import print_function
+
 import logging
+from builtins import map
 
 import pandas as pd
+from past.builtins import basestring
 
 from featuretools import variable_types as vtypes
 from featuretools.core.base import FTBase
@@ -38,7 +42,7 @@ class BaseEntity(FTBase):
             index (Optional(str)) : Id of index variable. Ignored if entityset provided
             time_index (Optional(str)) : Id of time index variable. Ignored if entityset provided
         """
-        assert isinstance(id, str), "Entity id must be a string"
+        assert isinstance(id, basestring), "Entity id must be a string"
 
         self.id = id
         self.name = name
@@ -55,7 +59,7 @@ class BaseEntity(FTBase):
         link_vars = [v.id for rel in relationships for v in [rel.parent_variable, rel.child_variable]
                      if v.entity.id == self.id]
 
-        inferred_variable_types = self.infer_variable_types(ignore=variable_types.keys(),
+        inferred_variable_types = self.infer_variable_types(ignore=list(variable_types.keys()),
                                                             link_vars=link_vars)
         for var_id, desired_type in variable_types.items():
             if isinstance(desired_type, tuple):
@@ -158,7 +162,7 @@ class BaseEntity(FTBase):
         """
         return self.entityset.get_instance_data(self.id, instance_ids=instance_ids)
 
-    def get_shape(self):
+    def get_shape():
         raise NotImplementedError()
 
     def head(self, n=10, cutoff_time=None):
@@ -178,7 +182,7 @@ class BaseEntity(FTBase):
             from featuretools.computational_backends.calculate_feature_matrix import calculate_feature_matrix
             from featuretools.features import Feature
 
-            row = map(Feature, self.variables)
+            row = list(map(Feature, self.variables))
             instance_ids = self.entityset.get_top_n_instances(self.id, n)
             cutoff_time = pd.DataFrame({'instance_id': instance_ids})
             cutoff_time['time'] = cutoff_time

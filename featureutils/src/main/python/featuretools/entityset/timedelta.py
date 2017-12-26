@@ -1,8 +1,12 @@
+from __future__ import division
+
+from builtins import str
 from datetime import datetime
 
 import numpy as np
 import pandas as pd
 from dateutil.relativedelta import relativedelta
+from past.builtins import basestring
 
 from featuretools.core.base import FTBase
 from featuretools.exceptions import NotEnoughData
@@ -71,7 +75,7 @@ class Timedelta(FTBase):
                 exactly timedelta distance away from the original time/observation
         """
         # TODO: check if value is int or float
-        if isinstance(value, str):
+        if isinstance(value, basestring):
             from featuretools.utils.wrangle import _check_timedelta
             td = _check_timedelta(value)
             value, unit = td.value, td.unit

@@ -1,4 +1,5 @@
 import operator
+from builtins import str
 
 import numpy as np
 
@@ -76,7 +77,7 @@ class BinaryFeature(TransformPrimitive):
             return getattr(operator, self._get_op())(left_default_val,
                                                      right_default_val)
 
-    def _get_name(self):
+    def generate_name(self):
         return u"%s %s %s" % (self.left_str(),
                               self.operator, self.right_str())
 
@@ -227,7 +228,7 @@ class Negate(Subtract):
     def __init__(self, f):
         super(Negate, self).__init__(0, f)
 
-    def _get_name(self):
+    def generate_name(self):
         return u"-%s" % (self.right_str())
 
 

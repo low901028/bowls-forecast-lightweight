@@ -1,3 +1,6 @@
+from __future__ import print_function
+
+
 def print_graph(self, start_eid):
     """
     Print a representation of the entityset with parents & children, like

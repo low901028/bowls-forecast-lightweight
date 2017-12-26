@@ -1,6 +1,7 @@
 from inspect import getargspec, isclass
 
 import pandas as pd
+from past.builtins import basestring
 
 from .primitive_base import PrimitiveBase
 
@@ -73,10 +74,10 @@ def ensure_compatible_dtype(left, right):
         elif right.dtype != object and left.dtype == object:
             right = right.astype(object)
     elif isinstance(left, pd.Series):
-        if left.dtype != object and isinstance(right, str):
+        if left.dtype != object and isinstance(right, basestring):
             left = left.astype(object)
     elif isinstance(right, pd.Series):
-        if right.dtype != object and isinstance(left, str):
+        if right.dtype != object and isinstance(left, basestring):
             right = right.astype(object)
     return left, right
 

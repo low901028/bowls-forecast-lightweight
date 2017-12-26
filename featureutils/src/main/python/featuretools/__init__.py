@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 # flake8: noqa
 from . import config
 from .core import *
@@ -10,6 +11,5 @@ from .computational_backends.api import *
 from . import tests
 from .utils.pickle_utils import *
 import featuretools.demo
-from .demo import *
 
-__version__ = '0.1.14'
+__version__ = '0.1.16'

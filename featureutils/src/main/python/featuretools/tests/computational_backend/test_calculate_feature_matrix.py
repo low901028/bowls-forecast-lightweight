@@ -1,17 +1,17 @@
 import copy
 import os
 import shutil
+from builtins import range
 from datetime import datetime
 from random import randint
 
 import numpy as np
 import pandas as pd
 import pytest
-from dask.order import dfs
 
-from featuretools.tests.testing_utils.mock_ds import make_ecommerce_entityset
+from ..testing_utils import make_ecommerce_entityset
 
-from featuretools import EntitySet, Timedelta, calculate_feature_matrix
+from featuretools import EntitySet, Timedelta, calculate_feature_matrix, dfs
 from featuretools.computational_backends.calculate_feature_matrix import (
     bin_cutoff_times
 )
@@ -23,7 +23,6 @@ from featuretools.primitives import (
     Min,
     Sum
 )
-
 
 
 @pytest.fixture(scope='module')
@@ -152,7 +151,7 @@ def test_saveprogress(entityset):
                                        instance_ids=range(17),
                                        cutoff_time=times,
                                        save_progress=save_progress)
-    _, _, files = os.walk(save_progress).next()
+    _, _, files = next(os.walk(save_progress))
     files = [os.path.join(save_progress, file) for file in files]
     # there is 17 datetime files created above
     assert len(files) == 17
